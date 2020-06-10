@@ -33,7 +33,7 @@ public class Shop {
 				+this.computer;
 	}
 	void state() {
-		System.out.println(name+"´Ô, °áÁ¦ÇÏ½Ç ÃÑ ±İ¾×Àº "
-				+sum+"ÀÔ´Ï´Ù.");
+		System.out.println(name+"ë‹˜, ì´ ê²°ì œ ê¸ˆì•¡ì€"
+				+sum+"ë§Œì›ì…ë‹ˆë‹¤.");
 	}
 }

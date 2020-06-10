@@ -6,9 +6,9 @@ public class PlayerApp {
 		Player[] team = new Player[3];
 	for(int i=0;i<team.length;i++) {
 		Player man = new Player();
-		System.out.println("´ç½ÅÀÇ ÀÌ¸§Àº?");
+		System.out.println("ì´ë¦„ì€?");
 		man.setName(scanner.next());
-		System.out.println("´Þ¸®±â ±â·Ï");
+		System.out.println("ê¸°ë¡ìž…ë ¥:");
 		man.setRecord(scanner.nextInt());
 		team[i]=man;
 		}
@@ -20,9 +20,9 @@ public class PlayerApp {
 	
 	if(team[0].getRecord()<team[1].getRecord()) {
 
-		if(team[0].getRecord()<team[2].getRecord()) { 
-			ranking[0] = team[0];		
-		}else{
+		if(team[0].getRecord()<team[2].getRecord()) {ranking[0] = team[0];		
+		}
+		else{
 			ranking[0] = team[2];
 		}
 	}else{
@@ -31,6 +31,6 @@ public class PlayerApp {
 		
 		else {ranking[0] = team[2];} 
 		}
-	System.out.println("1µîÀº "+ranking[0].getName()+"ÀÔ´Ï´Ù.");
+	System.out.println("1ë“±ì€ "+ranking[0].getName()+"ìž…ë‹ˆë‹¤.");
 	}
 }

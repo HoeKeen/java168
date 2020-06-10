@@ -5,6 +5,6 @@ class Test {
 		System.out.println("1212?");
 		Scanner scanner = new Scanner (System.in);
 		String name = scanner.next();
-		System.out.println("¤·¤·1212"+name+"¤·¤·");
+		System.out.println("ã…‡ã…‡1212"+name+"4545");
 	}
 }

@@ -6,11 +6,11 @@ public class PsesonApp{
 	Person[] persons = new Person[3];	
 		for(int i=0;i<3;i++) {
 			Person person = new Person();
-			System.out.println("ÀÌ¸§ÀÌ ¹«¾ùÀÔ´Ï±î");
+			System.out.println("ë‹¹ì‹ ì˜ ì´ë¦„ì€?");
 			person.name = scanner.next();
-			System.out.println("³ªÀÌ´Â ¾î¶»°Ô µÇ¼¼¿ä?");
+			System.out.println("ë‹¹ì‹ ì˜ ë‚˜ì´ëŠ”?");
 			person.age = scanner.nextInt();
-			System.out.println("Å°´Â ¾î¶»°Ô µÇ¼¼¿ä?");
+			System.out.println("í‚¤ëŠ”?");
 			person.height = scanner.nextFloat();
 			persons[i] = person;
 							}

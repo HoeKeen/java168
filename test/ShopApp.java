@@ -6,13 +6,13 @@ public class ShopApp {
 		Shop[] price = new Shop[3];
 	for(int a=0;a<price.length;a++){
 		Shop shop = new Shop ();
-		System.out.println("ÀÌ¸§Àº?");
+		System.out.println("ì´ë¦„ì€??");
 		shop.setName(scanner.next());
-		System.out.println("Æù°¡°Ý:");
+		System.out.println("í•¸ë“œí° ê°€ê²©:");
 		shop.setPhone(scanner.nextInt());
-		System.out.println("TV°¡°Ý");
+		System.out.println("TV ê°€ê²©");
 		shop.setTv(scanner.nextInt());
-		System.out.println("ÄÄÇ»ÅÍ°¡°Ý");
+		System.out.println("ì»´í“¨í„° ê°€ê²©");
 		shop.setComputer(scanner.nextInt());
 		shop.sum();
 		price[a] = shop;
