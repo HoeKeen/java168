@@ -1,6 +1,6 @@
-package test;
+package practice;
 public class Shop {
-
+	
 	private String name;
 	private int phone,tv,computer,sum;
 	
@@ -8,7 +8,7 @@ public class Shop {
 		this.name=name;
 	}
 	public String getName() {
-		return this.name;
+		return this.name;		
 	}
 	public void setPhone(int phone) {
 		this.phone=phone;
@@ -17,23 +17,22 @@ public class Shop {
 		return this.phone;
 	}
 	public void setTv(int tv) {
-		this.tv=tv;
+		this.tv=tv;		
 	}
 	public int getTv() {
 		return this.tv;
 	}
 	public void setComputer(int computer) {
 		this.computer=computer;
-		}
-	public int getComputer() {
-		return this.computer;
-		}
-	public void sum() {
-		this.sum=this.phone+this.tv
-				+this.computer;
 	}
-	void state() {
-		System.out.println(name+"님, 결제하실 총 금액은 "
-				+sum+"입니다.");
+	public int getComputer(){
+		return this.computer;
+	}
+	public void sum() {
+		this.sum=this.phone+this.tv+this.computer;
+	}
+	public void state() {
+		System.out.println(name+"님, 결제하실 총 금액은"
+				+sum+"만원 입니다.");
 	}
 }
