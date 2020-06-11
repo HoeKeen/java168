@@ -14,15 +14,49 @@ public class PlayerApp {
 		}
 	Player[] ranking = new Player[3];
 	
-	if(players[0].getRecord()<players[1].getRecord()) {
-		if(players[0].getRecord()<players[2].getRecord())
-				ranking[0]=players[0];}
-	else {
-		if(players[1].getRecord()<players[2].getRecord()) 
-		  {ranking[0] = players[1];}
-		else {ranking[0] = players[2];} 
-	}
-	System.out.println("1등은 "+ ranking[0].getName()+"입니다.");
+	if(players[0].getRecord()<players[1].getRecord() && 
+		players[1].getRecord()<players[2].getRecord())//abc
+	{ranking[0]=players[0];}
+	{ranking[1]=players[1];}
+	{ranking[2]=players[2];}
+	
+	if(players[0].getRecord()<players[1].getRecord() && 
+		players[2].getRecord()<players[1].getRecord() &&
+		players[0].getRecord()<players[2].getRecord()) //acb
+	{ranking[0]=players[0];}
+	{ranking[1]=players[2];}
+	{ranking[2]=players[1];}
+	
+	if(players[1].getRecord()<players[2].getRecord() &&
+		players[2].getRecord()<players[0].getRecord()) //bca
+	{ranking[0]=players[1];}
+	{ranking[1]=players[2];}
+	{ranking[2]=players[0];}
+	
+	if(players[1].getRecord()<players[2].getRecord() &&
+		players[0].getRecord()<players[2].getRecord() &&
+		players[1].getRecord()<players[0].getRecord()) //bac
+	{ranking[0]=players[1];}
+	{ranking[1]=players[0];}
+	{ranking[2]=players[2];}
+	
+	if(players[2].getRecord()<players[1].getRecord() && 
+		players[0].getRecord()<players[1].getRecord()) //cab
+	{ranking[0]=players[2];}
+	{ranking[1]=players[0];}
+	{ranking[2]=players[1];}
+	
+	if(players[2].getRecord()<players[1].getRecord() && 
+			players[0].getRecord()<players[1].getRecord() &&
+			players[2].getRecord()<players[0].getRecord()) //cba
+	{ranking[0]=players[2];}
+	{ranking[1]=players[1];}
+	{ranking[2]=players[0];}
+		  
+	System.out.println(
+			"1등은 "+ ranking[0].getName()+
+			"\r2등은 "+ ranking[1].getName()+
+			"\r3등은 "+ ranking[2].getName()+"입니다.");
 }
 }
 }

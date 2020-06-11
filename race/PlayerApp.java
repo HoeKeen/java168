@@ -18,15 +18,10 @@ public class PlayerApp {
 	
 	Player[] ranking = new Player[3];
 	
-	if(team[0].getRecord()<team[1].getRecord()) {
-
-		if(team[0].getRecord()<team[2].getRecord()) {ranking[0] = team[0];		
-		}
-		else{
+	if(team[0].getRecord()<team[1].getRecord() && team[1].getRecord()<team[2].getRecord()) {
 			ranking[0] = team[2];
 		}
-	}else{
-		if(team[1].getRecord()<team[2].getRecord()) 
+	}else if(team[1].getRecord()<team[2].getRecord() && ) 
 			  ranking[0] = team[1];
 		
 		else {ranking[0] = team[2];} 
