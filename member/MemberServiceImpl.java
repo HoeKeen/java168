@@ -1,11 +1,11 @@
 package member;
 
-public class MemberServiceImpl implements MemberService{
-	private Member[] members; 
+public class MemberServiceImpl implements MemberService {
+	private Member[] members;
 	private int count;
-	
+
 	public MemberServiceImpl() {
-		members  = new Member[3];
+		members = new Member[3];
 		count = 0;
 	}
 
@@ -14,21 +14,36 @@ public class MemberServiceImpl implements MemberService{
 		members[count] = member;
 		count++;
 	}
-	
 
 	@Override
-	public void login(Member member) {
-		for(int i=0;i<count;i++) {
-			if(member.getUserid().equals(members[i].getUserid())
+	public String login(Member member) {
+		String result = "FAIL";
+		for (int i = 0; i < count; i++) {
+			if (member.getUserid().equals(members[i].getUserid())
 					&& member.getPassword().equals(members[i].getPassword())) {
-				System.out.println("로그인 성공");
+				result = "SUCCESS";
 				break;
-			}else {
-				System.out.println("로그인 실패");
 			}
 		}
-		
+		return result;
 	}
+
+	@Override
+	public String idfind(Member member) {
+		String result = "중복없음";
+		for(int i=0;i<count;i++) {
+			if(member.getUserid().equals(members[i].getUserid())) {
+				result = "중복된 아이디";
+			}
+		}
+		return result;
+	}
+
+	/*
+	 * String id_find = "없는 아이디입니다."; for (int i = 0; i < count; i++) { if
+	 * (member.getUserid().equals(members[i].getUserid())) id_find =
+	 * "이미 있는 아이디입니다."; break; } return id_find; }
+	 */
 
 	@Override
 	public Member[] list() {
