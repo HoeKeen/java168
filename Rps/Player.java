@@ -1,4 +1,4 @@
-package race2;
+package Rps;
 public class Player {
 	private String name;
 	private int record;
