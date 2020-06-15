@@ -1,7 +1,7 @@
 package member;
 
 public class Member {
-	private String userid,password, name;
+	private String userid,password, name,change;
 	
 	public Member() {
 		// TODO Auto-generated constructor stub
@@ -25,9 +25,13 @@ public class Member {
 	public String getName() {
 		return this.name;
 	}
-	
+	public void setchangePassword(String change) {
+		this.change = change;
+	}
+	public String getchangePassword() {
+		return this.change;
+	}
 	public String toString() {
 		return "[아이디: "+userid+", 비번: "+password+", 이름: "+name+"]";
 	}
-
 }
