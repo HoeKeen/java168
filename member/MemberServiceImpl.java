@@ -45,11 +45,11 @@ public class MemberServiceImpl implements MemberService {
 		for (int i = 0; i < count; i++) {
 			if (member.getUserid().equals(members[i].getUserid())
 					&& member.getPassword().equals(members[i].getPassword())) {
-				members[i].getUserid().equals(null);
-				members[i].getPassword().equals(null);
-				members[i].getName().equals(null);
-				count--;
-				break;
+				for (int j = 0; j < count; j++) {
+					members[i] = members[i + 1];
+					result = "아이디와 비밀번호를 정확히 입력해주세요.";
+					count -= 1;
+				}
 			}
 		}
 		return result;
@@ -61,15 +61,16 @@ public class MemberServiceImpl implements MemberService {
 		for (int i = 0; i < count; i++) {
 			if (member.getPassword().equals(members[i].getPassword())) {
 				System.out.println("아이디: " + members[i].getUserid());
-				System.out.println("변경할 비밀번호: "+member.getchangePassword());
+				System.out.println("변경할 비밀번호: " + member.getchangePassword());
 				members[i].getPassword().equals(member.getchangePassword());
 				result = "변경되었습니다.";
 				break;
-			}else {System.out.println("잘못된 비밀번호입니다.");
+			} else {
+				System.out.println("잘못된 비밀번호입니다.");
+			}
 		}
-	}
 		return result;
-}
+	}
 
 	@Override
 	public Member[] list() {

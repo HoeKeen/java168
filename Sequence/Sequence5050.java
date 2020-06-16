@@ -1,4 +1,4 @@
-package Sequence;
+package sequence;
 
 public class Sequence5050 {
 	public static void main(String[] args) {

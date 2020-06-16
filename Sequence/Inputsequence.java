@@ -1,4 +1,4 @@
-package Sequence;
+package sequence;
 
 import java.util.Scanner;
 
