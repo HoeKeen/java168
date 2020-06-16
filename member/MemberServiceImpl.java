@@ -43,13 +43,12 @@ public class MemberServiceImpl implements MemberService {
 	public String withdrawal(Member member) {
 		String result = "탈퇴되었습니다.";
 		for (int i = 0; i < count; i++) {
-			if (member.getUserid()
-					.equals(members[i].getUserid())
+			if (member.getUserid().equals(members[i].getUserid())
 					&& member.getPassword().equals(members[i].getPassword())) {
 				for (int j = 0; j < count; j++) {
-					members[i] = members[count-1];
-					members[count-1]=null;
-				} // else {result = "아이디와 비밀번호를 정확히 입력해주세요.";break;}
+					members[i] = members[i + 1];
+
+				}
 				count--;
 			}
 		}
@@ -58,20 +57,30 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public String changePassword(Member member) {
-		String result = "잘못된 비밀번호입니다.";
+		String result = "비밀번호가 틀렸습니다.";
+		String changePassword;
 		for (int i = 0; i < count; i++) {
 			if (member.getPassword().equals(members[i].getPassword())) {
 				System.out.println("아이디: " + members[i].getUserid());
-				System.out.println("변경할 비밀번호: " + member.getchangePassword());
-				members[i].getPassword().equals(member.getchangePassword());
 				result = member.getchangePassword() + "로 변경되었습니다.";
-				break;
-			} else {
-				System.out.println("잘못된 비밀번호입니다.");
+				changePassword = member.getchangePassword();
+				(members[i].password)=member.getchangePassword();
 			}
-		}
-		return result;
+			}return result;
 	}
+
+	// public String changePassword(Member member) {
+	// String result = "비밀번호가 틀렸습니다.";
+	// for (int i = 0; i < count; i++) {
+	// if (member.getPassword().equals(members[i].getPassword())) {
+	// System.out.println("아이디: " + members[i].getUserid());
+	// result = member.getchangePassword() + "로 변경되었습니다.";
+	//
+	// ;
+	// break;
+	// }
+	// }return result;
+	// }
 
 	@Override
 	public Member[] list() {
@@ -79,8 +88,14 @@ public class MemberServiceImpl implements MemberService {
 		return members;
 	}
 
-	@Override		
+	@Override
 	public int count() {
-		return this.count;		
+		return this.count;
+	}
+
+	@Override
+	public void changePassword() {
+		// TODO Auto-generated method stub
+
 	}
 }

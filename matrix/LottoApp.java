@@ -20,7 +20,7 @@ public class LottoApp {
 		int[] lotto = new int[6];
 		Lotto instance = new Lotto();
 		for (int i = 0; i < lotto.length; i++) {
-			int temp = random.nextInt(45) + 1;
+			int temp = random.nextInt(7) + 1;
 			System.out.printf("뽑힌 값: %d\n",temp);
 			if(instance.isDuplication(lotto,temp)) {
 				i--;

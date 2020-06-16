@@ -10,6 +10,7 @@ public interface MemberService {
 
 
 	public int count();
+	void changePassword();
 	
 	//public String showinfo(Member member);
 	

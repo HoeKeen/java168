@@ -1,7 +1,10 @@
 package member;
 
 public class Member {
-	private String userid,password, name,change;
+	private String userid;
+	String password;
+	private String name;
+	private String change;
 	
 	public Member() {
 		// TODO Auto-generated constructor stub
