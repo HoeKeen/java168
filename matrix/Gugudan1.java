@@ -1,4 +1,4 @@
-package marix;
+package matrix;
 
 public class Gugudan1 {
 	public static void main(String[] args) {

@@ -53,13 +53,13 @@ public class MemberApp {
 				member.setPassword(scanner.next());
 				System.out.println("수정할 비밀번호를 입력해주세요.");
 				member.setchangePassword(scanner.next());
-				
+
 				String result = memberService.changePassword(member);
 				System.out.println(result);
 				break;
 			case 4:
 				System.out.println("회원 탈퇴");
-				memberService.withdrawal(member);
+				member = new Member();
 				System.out.println("아이디: ");
 				member.setUserid(scanner.next());
 				System.out.println("비밀번호: ");
@@ -86,7 +86,16 @@ public class MemberApp {
 				result = memberService.login(member);
 				System.out.println(result);
 				break;
-
+			case 7:
+				System.out.println("목록보기");
+				Member[] list = memberService.list();
+				int count = memberService.count();
+				System.out.println("회원수 :" + count);
+				for (int i = 0; i < count; i++) {
+					System.out.println(list[i].
+							toString());
+				}
+				break;
 			default:
 				System.out.println("메뉴에 없는 기능입니다.");
 				break;

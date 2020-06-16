@@ -6,7 +6,11 @@ public interface MemberService {
 	public String login(Member member);
 	public String changePassword(Member member);
 	public String withdrawal (Member member);
-	public String idfind(Member member); 
+	public String idfind(Member member);
+
+
+	public int count();
+	
 	//public String showinfo(Member member);
 	
 }

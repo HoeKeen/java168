@@ -1,4 +1,4 @@
-package marix;
+package matrix;
 
 public class Matrix5 {
 public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package marix;
+package matrix;
 
 public class Teams {
 	public static void main(String[] args) {

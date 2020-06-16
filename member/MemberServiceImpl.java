@@ -43,13 +43,14 @@ public class MemberServiceImpl implements MemberService {
 	public String withdrawal(Member member) {
 		String result = "탈퇴되었습니다.";
 		for (int i = 0; i < count; i++) {
-			if (member.getUserid().equals(members[i].getUserid())
+			if (member.getUserid()
+					.equals(members[i].getUserid())
 					&& member.getPassword().equals(members[i].getPassword())) {
 				for (int j = 0; j < count; j++) {
-					members[i] = members[i + 1];
-					result = "아이디와 비밀번호를 정확히 입력해주세요.";
-					count -= 1;
-				}
+					members[i] = members[count-1];
+					members[count-1]=null;
+				} // else {result = "아이디와 비밀번호를 정확히 입력해주세요.";break;}
+				count--;
 			}
 		}
 		return result;
@@ -63,7 +64,7 @@ public class MemberServiceImpl implements MemberService {
 				System.out.println("아이디: " + members[i].getUserid());
 				System.out.println("변경할 비밀번호: " + member.getchangePassword());
 				members[i].getPassword().equals(member.getchangePassword());
-				result = "변경되었습니다.";
+				result = member.getchangePassword() + "로 변경되었습니다.";
 				break;
 			} else {
 				System.out.println("잘못된 비밀번호입니다.");
@@ -74,7 +75,12 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public Member[] list() {
-		// TODO Auto-generated method stub
-		return null;
+// TODO Auto-generated method stub
+		return members;
+	}
+
+	@Override		
+	public int count() {
+		return this.count;		
 	}
 }
