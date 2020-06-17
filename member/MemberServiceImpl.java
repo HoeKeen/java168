@@ -64,7 +64,7 @@ public class MemberServiceImpl implements MemberService {
 				System.out.println("아이디: " + members[i].getUserid());
 				result = member.getchangePassword() + "로 변경되었습니다.";
 				changePassword = member.getchangePassword();
-				(members[i].password)=member.getchangePassword();
+				members[i].setPassword(member.getchangePassword());
 			}
 			}return result;
 	}

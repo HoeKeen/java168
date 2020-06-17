@@ -2,7 +2,7 @@ package member;
 
 public class Member {
 	private String userid;
-	String password;
+	private String password;
 	private String name;
 	private String change;
 	
