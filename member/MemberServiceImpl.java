@@ -29,7 +29,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public String idfind(Member member) {
+	public String idFind(Member member) {
 		String result = "중복없음";
 		for (int i = 0; i < count; i++) {
 			if (member.getUserid().equals(members[i].getUserid())) {
@@ -46,9 +46,10 @@ public class MemberServiceImpl implements MemberService {
 			if (member.getUserid().equals(members[i].getUserid())
 					&& member.getPassword().equals(members[i].getPassword())) {
 				for (int j = 0; j < count; j++) {
-					members[i] = members[i + 1];
+					members[i] = members[count - 1];
 
 				}
+				members[count - 1] = null;
 				count--;
 			}
 		}
@@ -66,21 +67,9 @@ public class MemberServiceImpl implements MemberService {
 				changePassword = member.getchangePassword();
 				members[i].setPassword(member.getchangePassword());
 			}
-			}return result;
+		}
+		return result;
 	}
-
-	// public String changePassword(Member member) {
-	// String result = "비밀번호가 틀렸습니다.";
-	// for (int i = 0; i < count; i++) {
-	// if (member.getPassword().equals(members[i].getPassword())) {
-	// System.out.println("아이디: " + members[i].getUserid());
-	// result = member.getchangePassword() + "로 변경되었습니다.";
-	//
-	// ;
-	// break;
-	// }
-	// }return result;
-	// }
 
 	@Override
 	public Member[] list() {
@@ -94,8 +83,13 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public void changePassword() {
-		// TODO Auto-generated method stub
-
+	public Member[] nameFind(Member member) {
+		Member[] namE=null;
+		for (int i = 0; i < count; i++) {
+			if (member.getName().equals(members[i].getName())) {
+				namE[i]=members[i];
+			}
+		}
+		return namE;
 	}
 }
