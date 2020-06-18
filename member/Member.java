@@ -5,11 +5,8 @@ public class Member {
 	private String password;
 	private String name;
 	private String change;
-	private String[] namE;
-	public Member() {
-		// TODO Auto-generated constructor stub
-	}
 	
+		
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}

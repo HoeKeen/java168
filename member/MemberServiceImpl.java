@@ -29,10 +29,11 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public String idFind(Member member) {
+	public String idFind(String id) {
 		String result = "중복없음";
 		for (int i = 0; i < count; i++) {
-			if (member.getUserid().equals(members[i].getUserid())) {
+			id.equals(members[i].getUserid());
+			{
 				result = "중복된 아이디";
 			}
 		}
@@ -58,14 +59,16 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public String changePassword(Member member) {
-		String result = "비밀번호가 틀렸습니다.";
+		String result = "아이디,혹은 비밀번호가 틀렸습니다.";
 		String changePassword;
 		for (int i = 0; i < count; i++) {
-			if (member.getPassword().equals(members[i].getPassword())) {
+			if (member.getUserid().equals(members[i].getUserid())
+					&& member.getPassword().equals(members[i].getPassword())) {
 				System.out.println("아이디: " + members[i].getUserid());
 				result = member.getchangePassword() + "로 변경되었습니다.";
 				changePassword = member.getchangePassword();
-				members[i].setPassword(member.getchangePassword());
+				members[i].setPassword(member.getchangePassword());// 보안이 들어갈때
+
 			}
 		}
 		return result;
@@ -78,18 +81,36 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int count() {
-		return this.count;
+	public Member[] nameFind(String name) {
+		int cnt = 0; // 동명이인의 수
+		int a = 0;
+		for (int i = 0; i < members.length; i++) {
+
+			if (name.
+					equals
+					(members[i].
+							getName())) {
+				cnt++;
+			}
+		}
+		Member[] temp = new Member[cnt];
+	for (int i = 0; i < cnt; i++) {
+
+			if (name.equals(members[i].getName())) {
+				 = (Member) temp;
+				temp[a]=(Member)members[i].getUserid();
+				a++;
+				if (a == cnt) {
+					break;
+					
+				}
+			}
+		}
+		return temp;
 	}
 
 	@Override
-	public Member[] nameFind(Member member) {
-		Member[] namE=null;
-		for (int i = 0; i < count; i++) {
-			if (member.getName().equals(members[i].getName())) {
-				namE[i]=members[i];
-			}
-		}
-		return namE;
+	public int count() {
+		return this.count;
 	}
 }

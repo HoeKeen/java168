@@ -47,12 +47,18 @@ public class MemberApp {
 				}
 				break;
 			case 4: //4.아이디 중복 체크
-				System.out.println("아이디 중복 체크");
+				System.out.println("아이디 중복체크");
+				member = new Member(); // Member 클래스에서 정보를 가져와 member에 담는다
+				System.out.println("검색할 아이디를 입력하세요.");
+				result = memberService.idFind(scanner.next()); // 위에 이미 스트링 리설트, 같은 의미를 반복해서 여기서는 스트링 안써야됨
+				System.out.println(result);
 				break;
 			case 5: //5.비번 수정
 				member = new Member();
 				System.out.println("비밀번호 수정");
-				System.out.println("원래 비밀번호를 입력해주세요.");
+				System.out.println("아이디를 입력해주세요.");
+				member.setUserid(scanner.next());
+				System.out.println("비밀번호를 입력해주세요.");
 				member.setPassword(scanner.next());
 				System.out.println("수정할 비밀번호를 입력해주세요.");
 				member.setchangePassword(scanner.next());
@@ -71,30 +77,29 @@ public class MemberApp {
 				break;
 			case 7: //7.아이디 검색
 				System.out.println("아이디 검색");
-				member = new Member(); // Member 클래스에서 정보를 가져와 member에 담는다
-				System.out.println("검색할 아이디를 입력하세요.");
-				member.setUserid(scanner.next());
-				result = memberService.idFind(member); // 위에 이미 스트링 리설트, 같은 의미를 반복해서 여기서는 스트링 안써야됨
-				System.out.println(result);
 				break;
 			case 8: //8.이름검색
-				member = new Member();
 				System.out.println("이름검색");
 				System.out.println("검색할 이름을 입력하세요.");
-				member.setName(scanner.next());
-				Member[] namE = memberService.nameFind(member);
-				count = memberService.count();
-				for(int i=0;i<count;i++) {
-				System.out.println(namE[i]);
+				Member[] 
+						temp 
+						= memberService.
+						nameFind
+						(scanner.next());
+				for(int i=0;i<temp.length;i++){
+				System.out.println(temp[i]);
 				}
 				break;
 			case 9: //9.전체 회원수
+				member = new Member();
 				System.out.println("전체 회원수");
+				count = memberService.count();
+				System.out.println(count);
 				break;
 			default:
 				System.out.println("메뉴에 없는 기능입니다.");
 				break;
 			}
 		}
-	}
+}
 }

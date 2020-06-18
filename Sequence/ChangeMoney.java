@@ -20,7 +20,7 @@ class Money {
 			count = money / bills[i];
 			System.out.println(count + "장\r");
 			money = money - count * bills[i];
-			//System.out.println(money);
+			System.out.println(money);
 		}
 	}
 }
