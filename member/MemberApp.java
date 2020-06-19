@@ -77,6 +77,7 @@ public class MemberApp {
 				break;
 			case 7: //7.아이디 검색
 				System.out.println("아이디 검색");
+				
 				break;
 			case 8: //8.이름검색
 				System.out.println("이름검색");
@@ -87,7 +88,6 @@ public class MemberApp {
 				}
 				break;
 			case 9: //9.전체 회원수
-				member = new Member();
 				System.out.println("전체 회원수");
 				count = memberService.count();
 				System.out.println(count);

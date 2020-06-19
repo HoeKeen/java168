@@ -5,7 +5,7 @@ public class MemberServiceImpl implements MemberService {
 	private int count;
 
 	public MemberServiceImpl() {
-		members = new Member[3];
+		members = new Member[5];
 		count = 0;
 	}
 
@@ -32,8 +32,7 @@ public class MemberServiceImpl implements MemberService {
 	public String idFind(String id) {
 		String result = "중복없음";
 		for (int i = 0; i < count; i++) {
-			id.equals(members[i].getUserid());
-			{
+			if (id.equals(members[i].getUserid())) {
 				result = "중복된 아이디";
 			}
 		}
@@ -42,17 +41,15 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public String withdrawal(Member member) {
-		String result = "탈퇴되었습니다.";
+		String result = "아이디,혹은 비밀번호가 틀렸습니다.";
 		for (int i = 0; i < count; i++) {
 			if (member.getUserid().equals(members[i].getUserid())
 					&& member.getPassword().equals(members[i].getPassword())) {
-				for (int j = 0; j < count; j++) {
-					members[i] = members[count - 1];
-
-				}
+				members[i] = members[count - 1];
 				members[count - 1] = null;
 				count--;
 			}
+			result = "탈퇴되었습니다.";
 		}
 		return result;
 	}
@@ -65,9 +62,9 @@ public class MemberServiceImpl implements MemberService {
 			if (member.getUserid().equals(members[i].getUserid())
 					&& member.getPassword().equals(members[i].getPassword())) {
 				System.out.println("아이디: " + members[i].getUserid());
-				result = member.getchangePassword() + "로 변경되었습니다.";
 				changePassword = member.getchangePassword();
 				members[i].setPassword(member.getchangePassword());// 보안이 들어갈때
+				result = member.getchangePassword() + "로 변경되었습니다.";
 
 			}
 		}
@@ -85,24 +82,17 @@ public class MemberServiceImpl implements MemberService {
 		int cnt = 0; // 동명이인의 수
 		int a = 0;
 		for (int i = 0; i < count; i++) {
-
-			if (name.
-					equals
-					(members[i].
-							getName())) {
+			if (name.equals(members[i].getName())) {
 				cnt++;
 			}
 		}
 		Member[] temp = new Member[cnt];
-	for (int i = 0; i < cnt; i++) {
-			
+		for (int i = 0; i < cnt; i++) {
 			if (name.equals(members[i].getName())) {
-				// = (Member) temp;
-				temp[a]= members[i];
+				temp[a] = members[i];
 				a++;
 				if (a == cnt) {
 					break;
-					
 				}
 			}
 		}
@@ -111,6 +101,6 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int count() {
-		return this.count;
+		return count;
 	}
 }
