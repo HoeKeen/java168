@@ -84,7 +84,7 @@ public class MemberServiceImpl implements MemberService {
 	public Member[] nameFind(String name) {
 		int cnt = 0; // 동명이인의 수
 		int a = 0;
-		for (int i = 0; i < members.length; i++) {
+		for (int i = 0; i < count; i++) {
 
 			if (name.
 					equals
@@ -95,10 +95,10 @@ public class MemberServiceImpl implements MemberService {
 		}
 		Member[] temp = new Member[cnt];
 	for (int i = 0; i < cnt; i++) {
-
+			
 			if (name.equals(members[i].getName())) {
-				 = (Member) temp;
-				temp[a]=(Member)members[i].getUserid();
+				// = (Member) temp;
+				temp[a]= members[i];
 				a++;
 				if (a == cnt) {
 					break;

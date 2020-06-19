@@ -81,11 +81,7 @@ public class MemberApp {
 			case 8: //8.이름검색
 				System.out.println("이름검색");
 				System.out.println("검색할 이름을 입력하세요.");
-				Member[] 
-						temp 
-						= memberService.
-						nameFind
-						(scanner.next());
+				Member[]temp= memberService.nameFind(scanner.next());
 				for(int i=0;i<temp.length;i++){
 				System.out.println(temp[i]);
 				}
